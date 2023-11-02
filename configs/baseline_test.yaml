@@ -1,0 +1,42 @@
+LOG_DIR: 'logs/baseline_test'
+EXP_NAME: 'hmr_baseline'
+SEED_VALUE: -1
+METHOD: 'baseline'
+RUN_TEST: True
+PROJECT_NAME: 'mp2023'
+DATASET:
+  LOAD_TYPE: 'Base'
+  BATCH_SIZE: 64
+  NUM_WORKERS: 16
+  PIN_MEMORY: True
+  SHUFFLE_TRAIN: True
+  TRAIN_DS: 'all'
+  VAL_DS: '3dpw-val'
+  NUM_IMAGES: -1
+  IMG_RES: 128
+OPTIMIZER:
+  TYPE: 'adam'
+  LR: 5e-5
+  WD: 0.0
+TRAINING:
+  RESUME: null
+  PRETRAINED: null
+  PRETRAINED_LIT: 'logs/baseline_fixed/tb_logs/0/checkpoints/epoch=99-step=22999.ckpt' # replace this with your ckpt file
+  MAX_EPOCHS: 101
+  SAVE_IMAGES: True
+  LOG_SAVE_INTERVAL: 1
+  LOG_FREQ_TB_IMAGES: 2000
+  CHECK_VAL_EVERY_N_EPOCH: 5
+  RELOAD_DATALOADERS_EVERY_EPOCH: True
+HMR:
+  SHAPE_LOSS_WEIGHT: 0
+  KEYPOINT_LOSS_WEIGHT: 5.
+  KEYPOINT_NATIVE_LOSS_WEIGHT: 5.
+  POSE_LOSS_WEIGHT: 1.
+  BETA_LOSS_WEIGHT: 0.001
+  OPENPOSE_TRAIN_WEIGHT: 0.
+  GT_TRAIN_WEIGHT: 1.
+  LOSS_WEIGHT: 60.
+TESTING:
+  SAVE_IMAGES: false
+  SIDEVIEW: true
